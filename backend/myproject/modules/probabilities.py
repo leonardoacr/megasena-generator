@@ -1,26 +1,38 @@
 import math
 
 
-def calculate_total_probability(first_y, second_y, third_y, fourth_y, fifth_y, sixth_y, upper_limit):
-    # Calculate probabilities for each position
-    position_weights = []
-    for y in [first_y, second_y, third_y, fourth_y, fifth_y, sixth_y]:
-        position_weights.append(calculate_probability(y, upper_limit))
+def calculate_total_probability(first_y, second_y, third_y, fourth_y, fifth_y, sixth_y):
+    # Loop for global probability in each upper_limit
+    new_probability_array = []
+    new_probability_percentage_array = []
+    upper_limit_array = []
+    probability_data = []
+    for upper_limit in range(1, 61):
+        # Calculate probabilities for each position
+        position_weights = []
+        for y in [first_y, second_y, third_y, fourth_y, fifth_y, sixth_y]:
+            position_weights.append(calculate_probability(y, upper_limit))
 
-    # Calculate total probability
-    weighted_total_probability = 1
-    for weight in position_weights:
-        weighted_total_probability *= weight
+        # Calculate total probability
+        weighted_total_probability = 1
+        for weight in position_weights:
+            weighted_total_probability *= weight
 
-    total_probability = weighted_total_probability
+        total_probability = weighted_total_probability
 
-    normal_probability = round(math.comb(60, 6))
-    new_probability = round(normal_probability * weighted_total_probability)
+        normal_probability = round(math.comb(60, 6))
+        new_probability = round(normal_probability *
+                                weighted_total_probability)
+        new_probability_array.append(new_probability)
+        new_probability_percentage_array.append(
+            100 * new_probability / normal_probability)
+        upper_limit_array.append(upper_limit)
 
-    print_probabilities(*position_weights, weighted_total_probability,
-                        total_probability, new_probability, normal_probability)
-
-    return new_probability
+        # print_probabilities(*position_weights, weighted_total_probability,
+        #                     total_probability, new_probability, normal_probability)
+        probability_data = [
+            upper_limit_array, new_probability_array, new_probability_percentage_array]
+    return probability_data
 
 
 def calculate_probability(array_y, upper_limit):

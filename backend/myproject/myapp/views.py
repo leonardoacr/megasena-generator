@@ -50,3 +50,8 @@ def run_results_scripts(request):
 def run_dashboard_data(request):
     data = scripts.get_dashboard_data()
     return JsonResponse(data)
+
+
+def run_probability_data(request):
+    probability_data = scripts.get_probability_data()
+    return JsonResponse(probability_data)

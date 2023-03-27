@@ -12,15 +12,19 @@ def get_results(bandwidth):
         past_result = 'Resultado passado: ' + str(list(result[1]))
         game_number = 'Você ganhou um prêmio no jogo de número: ' + \
             str(result[2])
-        data = 'Data: ' + str(result[3])
+        date = 'Data: ' + str(result[3])
     else:
         past_result = ''
         game_number = ''
-        data = ''
+        date = ''
         type_of_prize = ''
 
-    return your_game, correct_guesses, past_result, game_number, data, type_of_prize
+    return your_game, correct_guesses, past_result, game_number, date, type_of_prize
 
 
 def get_dashboard_data():
     return main.dashboard_data()
+
+
+def get_probability_data():
+    return main.calculate_probabilities()

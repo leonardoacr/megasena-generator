@@ -57,14 +57,22 @@ def create_random_play(upper_limit):
         if sixth_guess not in numbers:
             numbers.add(sixth_guess)
 
-        calculate_total_probability(
-            first_y, second_y, third_y, fourth_y, fifth_y, sixth_y, upper_limit)
-
     return [first_guess, second_guess, third_guess, fourth_guess, fifth_guess, sixth_guess]
 
 
+def calculate_probabilities():
+    probability_data = calculate_total_probability(
+        first_y, second_y, third_y, fourth_y, fifth_y, sixth_y)
+    json_data = {
+        "upper_limit_array": probability_data[0],
+        "new_probability_array": probability_data[1],
+        "new_probability_percentage_array": probability_data[2]
+    }
+    return json_data
+
+
 def dashboard_data():
-    data = {
+    json_data = {
         "first_x": np.array(first_x).tolist(),
         "first_y": np.array(first_y).tolist(),
         "second_x": np.array(second_x).tolist(),
@@ -78,4 +86,4 @@ def dashboard_data():
         "sixth_x": np.array(sixth_x).tolist(),
         "sixth_y": np.array(sixth_y).tolist()
     }
-    return data
+    return json_data
