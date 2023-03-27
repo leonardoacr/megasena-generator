@@ -2,8 +2,8 @@ from . import main
 from . import verify_guesses
 
 
-def get_results():
-    random_play = main.create_random_play(10)
+def get_results(bandwidth):
+    random_play = main.create_random_play(bandwidth)
     result = verify_guesses.verify_guesses(random_play)
     your_game = 'Seu jogo: ' + str(random_play)
     correct_guesses = 'Você acertou: ' + str(result[0]) + ' números.'

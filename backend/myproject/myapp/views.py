@@ -2,21 +2,32 @@ from django.http import JsonResponse
 from modules import scripts
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.cache import cache
 
 
 @csrf_exempt
 def handle_bandwidth_form(request):
     if request.method == 'POST':
-        bandwidth = request.POST.get('bandwidth', '10')
-        print(f"Received bandwidth value: {bandwidth}")
-        # Do something with the bandwidth value
+        bandwidth = request.POST.get('bandwidth')
+
+        if (bandwidth == ''):
+            bandwidth = 10
+        else:
+            bandwidth = int(bandwidth)
+
+        # Store the bandwidth value in the cache
+        cache.set('bandwidth', bandwidth)
         return HttpResponse(status=200)
     else:
         return HttpResponse(status=405)
 
 
 def run_results_scripts(request):
-    result = scripts.get_results()
+    bandwidth = cache.get('bandwidth')
+    bandwidth = 10 if bandwidth is None else bandwidth
+    print(f"Received bandwidth value: {bandwidth}")
+
+    result = scripts.get_results(bandwidth)
     your_game = result[0]
     correct_guesses = result[1]
     past_result = result[2]

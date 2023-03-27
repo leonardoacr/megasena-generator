@@ -28,6 +28,8 @@ def create_arrays(position_qty):
 
 first_x, first_y = create_arrays(first_position_qty)
 second_x, second_y = create_arrays(second_position_qty)
+print(second_x)
+
 third_x, third_y = create_arrays(third_position_qty)
 fourth_x, fourth_y = create_arrays(fourth_position_qty)
 fifth_x, fifth_y = create_arrays(fifth_position_qty)
@@ -35,36 +37,24 @@ sixth_x, sixth_y = create_arrays(sixth_position_qty)
 
 
 def create_random_play(upper_limit):
-    sorted_first_x = sorted(first_x)
-    sorted_second_x = sorted(second_x)
-    sorted_third_x = sorted(third_x)
-    sorted_fourth_x = sorted(fourth_x)
-    sorted_fifth_x = sorted(fifth_x)
-    sorted_sixth_x = sorted(sixth_x)
     numbers = set()
     while len(numbers) < 6:
-        first_guess = random.randint(
-            sorted_first_x[0], sorted_first_x[upper_limit])
+        first_guess = random.choice(first_x[:upper_limit])
         if first_guess not in numbers:
             numbers.add(first_guess)
-        second_guess = random.randint(
-            sorted_second_x[0], sorted_second_x[upper_limit])
+        second_guess = random.choice(second_x[:upper_limit])
         if second_guess not in numbers:
             numbers.add(second_guess)
-        third_guess = random.randint(
-            sorted_third_x[0], sorted_third_x[upper_limit])
+        third_guess = random.choice(third_x[:upper_limit])
         if third_guess not in numbers:
             numbers.add(third_guess)
-        fourth_guess = random.randint(
-            sorted_fourth_x[0], sorted_fourth_x[upper_limit])
+        fourth_guess = random.choice(fourth_x[:upper_limit])
         if fourth_guess not in numbers:
             numbers.add(fourth_guess)
-        fifth_guess = random.randint(
-            sorted_fifth_x[0], sorted_fifth_x[upper_limit])
+        fifth_guess = random.choice(fifth_x[:upper_limit])
         if fifth_guess not in numbers:
             numbers.add(fifth_guess)
-        sixth_guess = random.randint(
-            sorted_sixth_x[0], sorted_sixth_x[upper_limit])
+        sixth_guess = random.choice(sixth_x[:upper_limit])
         if sixth_guess not in numbers:
             numbers.add(sixth_guess)
     return [first_guess, second_guess, third_guess, fourth_guess, fifth_guess, sixth_guess]

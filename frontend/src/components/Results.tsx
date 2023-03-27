@@ -7,13 +7,13 @@ import { sendDataToBackend } from "@/services/api-post-request";
 
 const Results = () => {
   const { data, isLoading, isError } = useResultsData();
-  const [bandwidth, setBandwidth] = useState<number>(10);
+  const [bandwidth, setBandwidth] = useState<number>();
+  const [bandwidthLimit, setBandwidthLimit] = useState<boolean>(false);
 
   const handleNewGame: React.FormEventHandler<HTMLFormElement> = async (
     event
   ) => {
     event.preventDefault(); // prevent default form submission behavior
-    console.log("hello");
 
     const form = event.currentTarget; // get the form element
     if (form) {
@@ -31,8 +31,8 @@ const Results = () => {
   const handleBandwidthChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = parseInt(event.target.value, 10);
-    setBandwidth(isNaN(value) ? 10 : value);
+    const value = parseInt(event.target.value);
+    setBandwidth(value);
   };
 
   if (isLoading) {
@@ -103,11 +103,27 @@ const Results = () => {
               id="bandwidth"
               name="bandwidth"
               placeholder="(Opcional - Padrão: 10)"
-              value={bandwidth === 10 ? "" : bandwidth}
+              value={bandwidth}
               min="1"
               max="20"
-              onChange={handleBandwidthChange}
+              onChange={(event) => {
+                const value = Number(event.target.value);
+                if (value < 1 || value > 20) {
+                  setBandwidthLimit(true);
+                  handleBandwidthChange(event);
+                } else {
+                  setBandwidthLimit(false);
+                  handleBandwidthChange(event);
+                }
+              }}
             />
+            {bandwidthLimit ? (
+              <div className="mt-2 text-red-500">
+                A faixa precisa estar entre 1 e 20
+              </div>
+            ) : (
+              ""
+            )}
           </form>
         </div>
         <div className="mt-4 flex justify-center">
