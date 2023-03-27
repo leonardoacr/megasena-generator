@@ -1,0 +1,39 @@
+import { useEffect, useState } from "react";
+import { getApiData } from "@/services/api-get-request";
+
+interface IData {
+  your_game: string;
+  correct_guesses: string;
+  game_number: string;
+  past_result: string;
+  data: string;
+  type_of_prize: string;
+}
+
+interface IResultsStateData {
+  data: IData | null;
+  isLoading: boolean;
+  isError: boolean;
+}
+
+export const useResultsData = (): IResultsStateData => {
+  const [data, setData] = useState<IData | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getApiData("results");
+        setData(data);
+      } catch (error) {
+        console.error("API request error.", error);
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  return { data, isLoading, isError };
+};
