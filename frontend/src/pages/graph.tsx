@@ -26,6 +26,11 @@ const Graph = () => {
   const xKey = router.query.xKey as string;
   const yKey = router.query.yKey as string;
   const title = router.query.title as string;
+  const chartLabelColor = router.query.chartLabelColor as string;
+  const chartBackgroundColor = router.query.chartBackgroundColor as string;
+  const chartBorderColor = router.query.chartBorderColor as string;
+  const xLabel = router.query.xLabel as string;
+  const yLabel = router.query.yLabel as string;
   const index = Number(router.query.index);
   const retrieveDashboardDataQuery = router.query.dashboardData
     ? JSON.parse(decodeURIComponent(router.query.dashboardData as string))
@@ -61,6 +66,11 @@ const Graph = () => {
                   title: title,
                   x: dashboardData[xKey],
                   y: dashboardData[yKey],
+                  chartLabelColor: chartLabelColor,
+                  chartBackgroundColor: chartBackgroundColor,
+                  chartBorderColor: chartBorderColor,
+                  xLabel: xLabel,
+                  yLabel: yLabel,
                 },
               ]}
             />

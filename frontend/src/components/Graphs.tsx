@@ -1,47 +1,45 @@
 import { Bar } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
+import React from "react";
 
-interface DashboardProps {
-  graphData: { title: string; x: number[]; y: number[] }[];
+interface GraphData {
+  title: string;
+  x: number[];
+  y: number[];
+  chartLabelColor: string;
+  chartBackgroundColor: string;
+  chartBorderColor: string;
+  xLabel: string;
+  yLabel: string;
 }
 
-const chartLabelColor = "#a0a1ac";
-const chartBackgroundColor = "rgba(0, 57, 230, 0.5)";
-const chartBorderColor = "blue";
+interface DashboardProps {
+  graphData: GraphData[];
+}
 
 Chart.register(CategoryScale);
 
 const Graphs = ({ graphData }: DashboardProps) => {
-  let globalTitle = "";
-  const sortedData = graphData.map((item) => {
-    const sortedXY = item.x
-      .map((xVal, index) => ({ x: xVal, y: item.y[index] }))
-      .sort((a, b) => a.x - b.x);
-    const sortedX = sortedXY.map((item) => item.x);
-    const sortedY = sortedXY.map((item) => item.y);
-
-    globalTitle = item.title;
-
-    return {
-      data: sortedY.map((yVal, index) => ({ x: sortedX[index], y: yVal })),
+  const datasets = graphData.map(
+    ({ x, y, chartBorderColor, chartBackgroundColor }) => ({
+      data: y.map((yVal, index) => ({ x: x[index], y: yVal })),
       borderWidth: 1,
       borderColor: chartBorderColor,
-      backgroundColor: chartBackgroundColor, // Set the background color of the bars to green
-    };
-  });
+      backgroundColor: chartBackgroundColor,
+    })
+  );
 
   const chartData = {
-    // Use sorted x values from first item as labels
-    labels: sortedData[0].data.map((dataPoint) => dataPoint.x),
-    datasets: sortedData,
+    labels: datasets[0].data.map(({ x }) => x),
+    datasets,
   };
 
   const chartOptions = {
     plugins: {
       title: {
         display: true,
-        text: globalTitle,
+        text: graphData[0].title,
         color: "white",
       },
       legend: {
@@ -52,25 +50,25 @@ const Graphs = ({ graphData }: DashboardProps) => {
       x: {
         title: {
           display: true,
-          text: "Número",
-          color: chartLabelColor,
+          text: graphData[0].xLabel,
+          color: graphData[0].chartLabelColor,
         },
         grid: {
           display: false,
           color: "white",
         },
         ticks: {
-          color: chartLabelColor,
+          color: graphData[0].chartLabelColor,
         },
       },
       y: {
         title: {
           display: true,
-          text: "Quantidade",
-          color: chartLabelColor,
+          text: graphData[0].yLabel,
+          color: graphData[0].chartLabelColor,
         },
         ticks: {
-          color: chartLabelColor,
+          color: graphData[0].chartLabelColor,
         },
       },
     },

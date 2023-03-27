@@ -32,6 +32,12 @@ const Dashboard = () => {
     "sixth_y",
   ];
 
+  const chartLabelColor = "#a0a1ac";
+  const chartBackgroundColor = "rgba(0, 57, 230, 0.5)";
+  const chartBorderColor = "blue";
+  const xLabel = "Número";
+  const yLabel = "Quantidade";
+
   return (
     <div className="font-montserrat h-full w-full bg-background-page text-white">
       <Header />
@@ -63,6 +69,11 @@ const Dashboard = () => {
                             xKey,
                             yKey,
                             title,
+                            chartLabelColor,
+                            chartBackgroundColor,
+                            chartBorderColor,
+                            xLabel,
+                            yLabel,
                             index,
                             dashboardData: encodeURIComponent(
                               JSON.stringify(dashboardData)
@@ -76,6 +87,11 @@ const Dashboard = () => {
                               title: title,
                               x: dashboardData[xKey],
                               y: dashboardData[yKey],
+                              chartLabelColor: chartLabelColor,
+                              chartBackgroundColor: chartBackgroundColor,
+                              chartBorderColor: chartBorderColor,
+                              xLabel: xLabel,
+                              yLabel: yLabel,
                             },
                           ]}
                         />
@@ -86,6 +102,7 @@ const Dashboard = () => {
               );
             })}
           </div>
+          <div>PROBABILITY DATAA</div>
         </div>
       </div>
     </div>
