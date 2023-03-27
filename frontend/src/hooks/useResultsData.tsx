@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getApiData } from "@/services/api-get-request";
 
-interface IData {
+export interface IData {
+  [key: string]: string;
   your_game: string;
   correct_guesses: string;
   game_number: string;

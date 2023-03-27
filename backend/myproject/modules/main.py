@@ -1,11 +1,11 @@
 import random
 
 import numpy as np
+from modules.probabilities import calculate_total_probability
 from . import data_processing
 
 # Create a function to create a bar plot
 
-# import_file.import_file()
 first_position_qty = data_processing.first_position_qty
 second_position_qty = data_processing.second_position_qty
 third_position_qty = data_processing.third_position_qty
@@ -28,7 +28,6 @@ def create_arrays(position_qty):
 
 first_x, first_y = create_arrays(first_position_qty)
 second_x, second_y = create_arrays(second_position_qty)
-print(second_x)
 
 third_x, third_y = create_arrays(third_position_qty)
 fourth_x, fourth_y = create_arrays(fourth_position_qty)
@@ -57,6 +56,10 @@ def create_random_play(upper_limit):
         sixth_guess = random.choice(sixth_x[:upper_limit])
         if sixth_guess not in numbers:
             numbers.add(sixth_guess)
+
+        calculate_total_probability(
+            first_y, second_y, third_y, fourth_y, fifth_y, sixth_y, upper_limit)
+
     return [first_guess, second_guess, third_guess, fourth_guess, fifth_guess, sixth_guess]
 
 

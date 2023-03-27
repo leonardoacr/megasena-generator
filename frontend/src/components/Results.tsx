@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LoadingSpinner from "./LoadingSpinner";
 import Ball from "./Ball";
-import { useResultsData } from "@/hooks/useResultsData";
+import { IData, useResultsData } from "@/hooks/useResultsData";
 import { useState } from "react";
 import { sendDataToBackend } from "@/services/api-post-request";
 
@@ -43,22 +43,22 @@ const Results = () => {
     return <div>Error fetching data</div>;
   }
 
-  const convertDataToInt = data?.your_game
-    .split("[")[1]
-    .split("]")[0]
-    .split(",")
-    .map((num) => parseInt(num.trim()));
-
   const customButtonClass =
     "mx-4 rounded-lg bg-slate-700 py-2 px-4 text-white hover:bg-slate-800 focus:outline-none";
 
-  const balls = Array.isArray(convertDataToInt) ? (
-    <Ball numbersArray={convertDataToInt} color="bg-lime-700" />
-  ) : null;
+  const displayGame = (resultsID: string, color: string) => {
+    if (data !== null) {
+      const convertDataToInt = data[resultsID]
+        .split("[")[1]
+        .split("]")[0]
+        .split(",")
+        .map((num) => parseInt(num.trim()));
 
-  const pastBalls = Array.isArray(convertDataToInt) ? (
-    <Ball numbersArray={convertDataToInt} color="bg-blue-500" />
-  ) : null;
+      return Array.isArray(convertDataToInt) ? (
+        <Ball numbersArray={convertDataToInt} color={color} />
+      ) : null;
+    }
+  };
 
   return (
     <>
@@ -68,7 +68,7 @@ const Results = () => {
             JOGO GERADO
           </h2>
           <div className="mt-4 mb-4 flex items-center justify-center">
-            {balls}
+            {displayGame("your_game", "bg-lime-700")}
           </div>
           {data?.past_result && (
             <>
@@ -76,7 +76,7 @@ const Results = () => {
                 JOGO PASSADO
               </h2>
               <div className="mt-4 mb-4 flex items-center justify-center">
-                {pastBalls}
+                {displayGame("past_result", "bg-blue-500")}
               </div>
             </>
           )}
@@ -105,10 +105,10 @@ const Results = () => {
               placeholder="(Opcional - Padrão: 10)"
               value={bandwidth}
               min="1"
-              max="20"
+              max="60"
               onChange={(event) => {
                 const value = Number(event.target.value);
-                if (value < 1 || value > 20) {
+                if (value < 1 || value > 60) {
                   setBandwidthLimit(true);
                   handleBandwidthChange(event);
                 } else {
@@ -119,7 +119,7 @@ const Results = () => {
             />
             {bandwidthLimit ? (
               <div className="mt-2 text-red-500">
-                A faixa precisa estar entre 1 e 20
+                A faixa precisa estar entre 1 e 60
               </div>
             ) : (
               ""
