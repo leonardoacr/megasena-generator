@@ -4,3 +4,4 @@ export const getApiData = async (url: string) => {
     return data;
 };
 
+

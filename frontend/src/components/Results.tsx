@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LoadingSpinner from "./LoadingSpinner";
 import Ball from "./Ball";
-import { IData, useResultsData } from "@/hooks/useResultsData";
+import { useResultsData } from "@/hooks/useResultsData";
 import { useState } from "react";
 import { sendDataToBackend } from "@/services/api-post-request";
 

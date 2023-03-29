@@ -9,9 +9,10 @@ fourth_position = import_data.fourth_position
 fifth_position = import_data.fifth_position
 sixth_position = import_data.sixth_position
 
-# Processing data
 
-
+# Collections lib is used to create a dictionary called 'frequency'
+# The function returns the frequency tuple (list that cannot be changed) ordered in reverse
+# Lambda returns the second element of each tuple
 def sort_frequency(arr):
     frequency = dict(collections.Counter(arr))
     return sorted(frequency.items(), key=lambda x: x[1], reverse=True)

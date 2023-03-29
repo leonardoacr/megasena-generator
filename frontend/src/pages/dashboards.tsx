@@ -3,6 +3,7 @@ import { useDashboardData } from "@/hooks/useDashboardData";
 import Header from "@/components/Header";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Dashboard = () => {
   const { dashboardData, isLoading, isError } = useDashboardData();
