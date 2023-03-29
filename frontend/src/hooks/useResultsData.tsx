@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getApiData } from "@/services/api-get-request";
+import { getResultsData } from "@/services/api-get-request";
 
 export interface IData {
   [key: string]: string;
@@ -25,7 +25,7 @@ export const useResultsData = (): IResultsStateData => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getApiData("results");
+        const data = await getResultsData();
         setData(data);
       } catch (error) {
         console.error("API request error.", error);

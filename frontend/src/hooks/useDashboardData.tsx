@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getApiData } from "@/services/api-get-request";
+import { getDashboardData } from "@/services/api-get-request";
 
 export interface IDashboardData {
   [key: string]: number[];
@@ -44,7 +44,7 @@ export const useDashboardData = (): IDashboardStateData => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getApiData("dashboard-data");
+        const data = await getDashboardData();
         setDashboardData(data);
       } catch (error) {
         console.error("API request error.", error);
