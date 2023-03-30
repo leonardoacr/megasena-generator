@@ -38,6 +38,7 @@ export const useDashboardData = (): IDashboardStateData => {
     sixth_x: [],
     sixth_y: [],
   });
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 

@@ -1,11 +1,11 @@
 import Graphs from "@/components/Graphs";
 import Header from "@/components/Header";
 import { IDashboardData } from "@/hooks/useDashboardData";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { DashboardContext } from "../contexts/DashboardContext";
 
 const Graph = () => {
-  const router = useRouter();
+  const dashboardContext = useContext(DashboardContext);
 
   const [dashboardData, setDashboardData] = useState<IDashboardData>({
     first_x: [],
@@ -22,61 +22,59 @@ const Graph = () => {
     sixth_y: [],
   });
 
-  // retrieve the query parameters
-  const xKey = router.query.xKey as string;
-  const yKey = router.query.yKey as string;
-  const title = router.query.title as string;
-  const chartLabelColor = router.query.chartLabelColor as string;
-  const chartBackgroundColor = router.query.chartBackgroundColor as string;
-  const chartBorderColor = router.query.chartBorderColor as string;
-  const xLabel = router.query.xLabel as string;
-  const yLabel = router.query.yLabel as string;
-  const index = Number(router.query.index);
-  const retrieveDashboardDataQuery = router.query.dashboardData
-    ? JSON.parse(decodeURIComponent(router.query.dashboardData as string))
-    : null;
-
   useEffect(() => {
-    // retrieve saved dashboardData from local storage
-    const savedDashboardData = localStorage.getItem("dashboardData");
-    if (savedDashboardData) {
-      setDashboardData(JSON.parse(savedDashboardData));
-    } else if (retrieveDashboardDataQuery?.fifth_x?.length !== 0) {
-      setDashboardData(retrieveDashboardDataQuery);
-      localStorage.setItem(
-        "dashboardData",
-        JSON.stringify(retrieveDashboardDataQuery)
+    console.log("hello graph page");
+    console.log("Data:", dashboardContext.passDashboardData);
+    if (dashboardContext.passDashboardData) {
+      console.log(dashboardContext.chartLabelColor);
+      console.log(
+        dashboardContext.graphData.xKey,
+        dashboardContext.graphData.yKey,
+        dashboardContext.graphData.title,
+        dashboardContext.graphData.index
       );
+      setDashboardData(dashboardContext.passDashboardData);
     }
-  }, []);
+  }, [
+    dashboardContext.passDashboardData,
+    dashboardContext.graphData,
+    dashboardContext.chartLabelColor,
+    dashboardContext.chartBackgroundColor,
+    dashboardContext.chartBorderColor,
+    dashboardContext.xLabel,
+    dashboardContext.yLabel,
+  ]);
 
   // render the Graph component with the retrieved data
   return (
     <div className="font-montserrat h-full bg-background-page text-white">
       <Header />
-      {dashboardData.fifth_x.length !== 0 && xKey && yKey && title && (
-        <div className=" flex h-screen items-center justify-center">
-          <div
-            className="w-3/4 items-center justify-center rounded-md bg-background-dashboard p-4"
-            key={index}
-          >
-            <Graphs
-              graphData={[
-                {
-                  title: title,
-                  x: dashboardData[xKey],
-                  y: dashboardData[yKey],
-                  chartLabelColor: chartLabelColor,
-                  chartBackgroundColor: chartBackgroundColor,
-                  chartBorderColor: chartBorderColor,
-                  xLabel: xLabel,
-                  yLabel: yLabel,
-                },
-              ]}
-            />
+      {dashboardData.fifth_x.length !== 0 &&
+        dashboardContext.graphData.xKey &&
+        dashboardContext.graphData.yKey &&
+        dashboardContext.graphData.title && (
+          <div className=" flex h-screen items-center justify-center">
+            <div
+              className="w-3/4 items-center justify-center rounded-md bg-background-dashboard p-4"
+              key={dashboardContext.graphData.index}
+            >
+              <Graphs
+                graphData={[
+                  {
+                    title: dashboardContext.graphData.title,
+                    x: dashboardData[dashboardContext.graphData.xKey],
+                    y: dashboardData[dashboardContext.graphData.yKey],
+                    chartLabelColor: dashboardContext.chartLabelColor,
+                    chartBackgroundColor: dashboardContext.chartBackgroundColor,
+                    chartBorderColor: dashboardContext.chartBorderColor,
+                    xLabel: dashboardContext.xLabel,
+                    yLabel: dashboardContext.yLabel,
+                  },
+                ]}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 };

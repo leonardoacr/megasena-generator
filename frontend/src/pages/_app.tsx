@@ -1,7 +1,12 @@
+import { DashboardContextProvider } from "@/contexts/DashboardContext";
 import "@/styles/globals.css";
 import "@fontsource/montserrat/latin.css";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <DashboardContextProvider>
+      <Component {...pageProps} />
+    </DashboardContextProvider>
+  );
 }
