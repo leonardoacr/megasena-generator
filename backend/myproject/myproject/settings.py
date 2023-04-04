@@ -21,6 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +56,15 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'renderers.SwaggerUIRenderer',  # add custom renderer here
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+}
+
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
@@ -74,6 +85,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+STATIC_URL = '/static/'
 
 
 # Internationalization

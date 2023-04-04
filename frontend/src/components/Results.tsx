@@ -98,7 +98,8 @@ const Results = () => {
               Largura da Faixa
             </label>
             <input
-              className="mx-4 flex w-4/6 items-center rounded-lg bg-slate-200 py-2 px-4 text-black focus:outline-none"
+              className="mx-4 flex w-4/6 items-center rounded-lg bg-slate-200 py-2 px-4
+               text-black focus:outline-none"
               type="number"
               id="bandwidth"
               name="bandwidth"

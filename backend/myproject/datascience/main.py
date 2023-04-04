@@ -1,7 +1,7 @@
 import random
 
 import numpy as np
-from modules.probabilities import calculate_total_probability
+from .probabilities import calculate_total_probability
 from . import data_processing
 
 # Create a function to create a bar plot
