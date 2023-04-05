@@ -24,6 +24,7 @@
     "typescript": "5.0.2"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/react-chartjs-2": "^2.5.7",
     "@types/react-resizable": "^3.0.3",
     "autoprefixer": "^10.4.14",
