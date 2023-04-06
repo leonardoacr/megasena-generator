@@ -45,36 +45,49 @@ const Graph = () => {
     dashboardContext.yLabel,
   ]);
 
+  // check if there is data available, otherwise show a message
+  if (
+    dashboardData.fifth_x.length === 0 ||
+    !dashboardContext.graphData.xKey ||
+    !dashboardContext.graphData.yKey ||
+    !dashboardContext.graphData.title
+  ) {
+    return (
+      <div className="font-montserrat mt-16 h-full bg-background-page text-white">
+        <Header />
+        <div className="flex h-screen items-center justify-center">
+          <h1 className="text-2xl">Nothing to show yet...</h1>
+        </div>
+      </div>
+    );
+  }
+
   // render the Graph component with the retrieved data
   return (
     <div className="font-montserrat mt-16 h-full bg-background-page text-white">
       <Header />
-      {dashboardData.fifth_x.length !== 0 &&
-        dashboardContext.graphData.xKey &&
-        dashboardContext.graphData.yKey &&
-        dashboardContext.graphData.title && (
-          <div className=" flex h-screen items-center justify-center">
-            <div
-              className="w-3/4 items-center justify-center rounded-md bg-background-dashboard p-4"
-              key={dashboardContext.graphData.index}
-            >
-              <Graphs
-                graphData={[
-                  {
-                    title: dashboardContext.graphData.title,
-                    x: dashboardData[dashboardContext.graphData.xKey],
-                    y: dashboardData[dashboardContext.graphData.yKey],
-                    chartLabelColor: dashboardContext.chartLabelColor,
-                    chartBackgroundColor: dashboardContext.chartBackgroundColor,
-                    chartBorderColor: dashboardContext.chartBorderColor,
-                    xLabel: dashboardContext.xLabel,
-                    yLabel: dashboardContext.yLabel,
-                  },
-                ]}
-              />
-            </div>
-          </div>
-        )}
+      <div className=" flex h-screen items-center justify-center">
+        <div
+          className="w-3/4 items-center justify-center rounded-md bg-background-dashboard p-4"
+          key={dashboardContext.graphData.index}
+        >
+          <Graphs
+            graphData={[
+              {
+                title: dashboardContext.graphData.title,
+                x: dashboardData[dashboardContext.graphData.xKey],
+                y: dashboardData[dashboardContext.graphData.yKey],
+                chartLabelColor: dashboardContext.chartLabelColor,
+                chartBackgroundColor: dashboardContext.chartBackgroundColor,
+                chartBorderColor: dashboardContext.chartBorderColor,
+                xLabel: dashboardContext.xLabel,
+                yLabel: dashboardContext.yLabel,
+                graphType: "Bar",
+              },
+            ]}
+          />
+        </div>
+      </div>
     </div>
   );
 };
