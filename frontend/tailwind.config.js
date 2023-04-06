@@ -15,7 +15,8 @@ module.exports = {
     extend: {
       colors: {
         'background-page': '#151929',
-        'background-dashboard': '#28293e',
+        'background-header': '#2a2b36',
+        'background-dashboard': '#24252f',
         'label-color': '#696b7a',
       },
     },

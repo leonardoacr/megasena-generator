@@ -64,7 +64,7 @@ const Dashboard = () => {
               key={index}
               onClick={() => handleClick(xKey, yKey, title, index)}
             >
-              <div className="rounded-md bg-background-dashboard p-4">
+              <div className="rounded-md bg-background-dashboard p-2">
                 <Link href="/graph">
                   <Graphs
                     graphData={[

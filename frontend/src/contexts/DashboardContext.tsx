@@ -53,7 +53,7 @@ export const DashboardContextProvider = ({
   });
 
   const chartLabelColor = "#a0a1ac";
-  const chartBackgroundColor = "rgba(0, 57, 230, 0.5)";
+  const chartBackgroundColor = "rgba(81, 150, 220, 1)";
   const chartBorderColor = "blue";
   const xLabel = "Número";
   const yLabel = "Quantidade";

@@ -24,7 +24,7 @@ const Graphs = ({ graphData }: DashboardProps) => {
   const datasets = graphData.map(
     ({ x, y, chartBorderColor, chartBackgroundColor }) => ({
       data: y.map((yVal, index) => ({ x: x[index], y: yVal })),
-      borderWidth: 1,
+      borderWidth: 0.5,
       borderColor: chartBorderColor,
       backgroundColor: chartBackgroundColor,
     })
@@ -41,6 +41,9 @@ const Graphs = ({ graphData }: DashboardProps) => {
         display: true,
         text: graphData[0].title,
         color: "white",
+        font: {
+          size: 14, // Add size property here
+        },
       },
       legend: {
         display: false,

@@ -47,7 +47,7 @@ const Graph = () => {
 
   // render the Graph component with the retrieved data
   return (
-    <div className="font-montserrat h-full bg-background-page text-white">
+    <div className="font-montserrat mt-16 h-full bg-background-page text-white">
       <Header />
       {dashboardData.fifth_x.length !== 0 &&
         dashboardContext.graphData.xKey &&

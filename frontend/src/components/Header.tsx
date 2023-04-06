@@ -12,7 +12,8 @@ const Header = () => {
     <div
       className={`flex h-16 items-center ${
         isGraphPage ? "justify-between" : "justify-center"
-      } bg-slate-800 pl-10`}
+      } bg-background-header pl-10`}
+      style={{ position: "fixed", top: 0, width: "100%", zIndex: 100 }}
     >
       <div></div>
       <button>
