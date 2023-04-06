@@ -1,7 +1,7 @@
-import { Bar } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
-import React from "react";
+import React, { useRef } from "react";
 
 interface GraphData {
   title: string;
@@ -12,6 +12,7 @@ interface GraphData {
   chartBorderColor: string;
   xLabel: string;
   yLabel: string;
+  graphType: string;
 }
 
 interface DashboardProps {
@@ -21,6 +22,21 @@ interface DashboardProps {
 Chart.register(CategoryScale);
 
 const Graphs = ({ graphData }: DashboardProps) => {
+  const chartRefs = useRef<(Chart<"line" | "bar", unknown> | null)[]>([]);
+
+  const handleDownload = (index: number) => {
+    const canvas = chartRefs.current[index]?.canvas;
+    if (canvas) {
+      const dataURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.download = `${graphData[index].title}.png`;
+      link.href = dataURL;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   const datasets = graphData.map(
     ({ x, y, chartBorderColor, chartBackgroundColor }) => ({
       data: y.map((yVal, index) => ({ x: x[index], y: yVal })),
@@ -42,7 +58,7 @@ const Graphs = ({ graphData }: DashboardProps) => {
         text: graphData[0].title,
         color: "white",
         font: {
-          size: 14, // Add size property here
+          size: 14,
         },
       },
       legend: {
@@ -77,7 +93,33 @@ const Graphs = ({ graphData }: DashboardProps) => {
     },
   };
 
-  return <Bar data={chartData} options={chartOptions} />;
+  const ChartComponent = graphData[0].graphType === "Line" ? Line : Bar;
+
+  return (
+    <div>
+      {graphData.map((_, index) => (
+        <div key={index}>
+          <ChartComponent
+            ref={(chart: any) => (chartRefs.current[index] = chart)}
+            data={chartData}
+            options={chartOptions}
+          />
+          {/* <button
+            className="my-2 inline-flex items-center rounded bg-slate-600 py-1 px-4 text-white hover:bg-gray-500"
+            onClick={() => handleDownload(index)}
+          >
+            <svg
+              className="h-6 w-4 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+            </svg>
+          </button> */}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Graphs;

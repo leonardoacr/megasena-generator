@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/montserrat": "^4.5.14",
+    "@material-tailwind/react": "^1.4.2",
     "@types/node": "18.15.8",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",

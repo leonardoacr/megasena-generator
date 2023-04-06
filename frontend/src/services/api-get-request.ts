@@ -11,3 +11,8 @@ export const getResultsData = async () => {
     const response = await axios.get(`${urlBase}results/`);
     return response.data;
 };
+
+export const getProbabilityData = async () => {
+    const response = await axios.get(`${urlBase}probability-data/`);
+    return response.data;
+};

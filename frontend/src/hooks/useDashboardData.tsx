@@ -48,7 +48,7 @@ export const useDashboardData = (): IDashboardStateData => {
         const data = await getDashboardData();
         setDashboardData(data);
       } catch (error) {
-        console.error("API request error.", error);
+        console.error("API request error (Dashboard Data).", error);
         setIsError(true);
       }
       setIsLoading(false);

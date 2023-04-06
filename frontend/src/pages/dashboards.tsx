@@ -6,7 +6,7 @@ const Dashboards = () => {
   return (
     <div className="font-montserrat h-full w-full bg-background-page text-white">
       <Header />
-      <h2 className="mb-2 mt-10 flex items-center justify-center font-bold">
+      <h2 className="mb-2 mt-16 flex items-center justify-center pt-8 font-bold">
         DASHBOARD
       </h2>
       <h5 className="mb-10 flex items-center justify-center font-bold">

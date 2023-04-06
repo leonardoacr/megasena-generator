@@ -3,6 +3,7 @@ import {
   IDashboardContext,
 } from "@/contexts/DashboardContext";
 import { useDashboardData } from "@/hooks/useDashboardData";
+import { useProbabilityData } from "@/hooks/useProbabilityData";
 import Link from "next/link";
 import { useContext } from "react";
 import Graphs from "./Graphs";
@@ -12,6 +13,8 @@ const Dashboard = () => {
   const dashboardContext = useContext<IDashboardContext>(DashboardContext);
 
   const { dashboardData, isLoading, isError } = useDashboardData();
+
+  const { probabilityData } = useProbabilityData();
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -64,7 +67,7 @@ const Dashboard = () => {
               key={index}
               onClick={() => handleClick(xKey, yKey, title, index)}
             >
-              <div className="rounded-md bg-background-dashboard p-2">
+              <div className="mt-10 rounded-md bg-background-dashboard p-2">
                 <Link href="/graph">
                   <Graphs
                     graphData={[
@@ -78,6 +81,7 @@ const Dashboard = () => {
                         chartBorderColor: dashboardContext.chartBorderColor,
                         xLabel: dashboardContext.xLabel,
                         yLabel: dashboardContext.yLabel,
+                        graphType: "Bar",
                       },
                     ]}
                   />
@@ -87,7 +91,23 @@ const Dashboard = () => {
           );
         })}
       </div>
-      <div>PROBABILITY DATA</div>
+      <div className="mt-16 rounded-md bg-background-dashboard p-2">
+        <Graphs
+          graphData={[
+            {
+              title: "Probability",
+              x: probabilityData.upper_limit_array,
+              y: probabilityData.new_probability_array,
+              chartLabelColor: dashboardContext.chartLabelColor,
+              chartBackgroundColor: dashboardContext.chartBackgroundColor,
+              chartBorderColor: "white",
+              xLabel: dashboardContext.xLabel,
+              yLabel: dashboardContext.yLabel,
+              graphType: "Line",
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 };
