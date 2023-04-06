@@ -1,5 +1,11 @@
 # <a href="https://codechallenge-1.onrender.com/">MegaSena Generator</a>
 
+<div align="center">
+ <a href="#technologies">Technologies</a> •
+ <a href="#running_backend">Running the Backend</a> •
+  <a href="#running_frontend">Running the Frontend</a>
+</div>
+<br>
 This is a personal project that utilizes statistical analysis and machine learning algorithms to generate lottery numbers for the Mega-Sena, the biggest lottery game in Brazil.
 
 The Mega-Sena game generator employs historical frequency data and standard deviation to calculate the probability of specific number combinations appearing in future lottery draws. In addition, advanced machine learning algorithms, such as Long Short-Term Memory (LSTM) and ARIMA models, are utilized to analyze past patterns and provide accurate predictions for future lottery outcomes.

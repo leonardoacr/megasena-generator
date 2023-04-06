@@ -95,7 +95,7 @@ const Dashboard = () => {
         <Graphs
           graphData={[
             {
-              title: "Probability",
+              title: "Probabilidade teórica por frequência histórica",
               x: probabilityData.upper_limit_array,
               y: probabilityData.new_probability_array,
               chartLabelColor: dashboardContext.chartLabelColor,
