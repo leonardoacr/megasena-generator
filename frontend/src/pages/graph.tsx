@@ -23,27 +23,10 @@ const Graph = () => {
   });
 
   useEffect(() => {
-    console.log("hello graph page");
-    console.log("Data:", dashboardContext.passDashboardData);
     if (dashboardContext.passDashboardData) {
-      console.log(dashboardContext.chartLabelColor);
-      console.log(
-        dashboardContext.graphData.xKey,
-        dashboardContext.graphData.yKey,
-        dashboardContext.graphData.title,
-        dashboardContext.graphData.index
-      );
       setDashboardData(dashboardContext.passDashboardData);
     }
-  }, [
-    dashboardContext.passDashboardData,
-    dashboardContext.graphData,
-    dashboardContext.chartLabelColor,
-    dashboardContext.chartBackgroundColor,
-    dashboardContext.chartBorderColor,
-    dashboardContext.xLabel,
-    dashboardContext.yLabel,
-  ]);
+  }, [dashboardContext.passDashboardData]);
 
   // check if there is data available, otherwise show a message
   if (
@@ -55,8 +38,8 @@ const Graph = () => {
     return (
       <div className="font-montserrat mt-16 h-full bg-background-page text-white">
         <Header />
-        <div className="flex h-screen items-center justify-center">
-          <h1 className="text-2xl">Nothing to show yet...</h1>
+        <div className="flex h-screen items-center justify-center text-center">
+          <h1 className="text-2xl">Selecione um gráfico nos dashboards.</h1>
         </div>
       </div>
     );
@@ -68,7 +51,7 @@ const Graph = () => {
       <Header />
       <div className=" flex h-screen items-center justify-center">
         <div
-          className="w-3/4 items-center justify-center rounded-md bg-background-dashboard p-4"
+          className="w-5/6 items-center justify-center rounded-md bg-background-dashboard p-4"
           key={dashboardContext.graphData.index}
         >
           <Graphs

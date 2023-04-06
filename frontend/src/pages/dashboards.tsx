@@ -9,7 +9,7 @@ const Dashboards = () => {
       <h2 className="mb-2 flex items-center justify-center pt-8 font-bold">
         DASHBOARD
       </h2>
-      <h5 className="mb-10 flex items-center justify-center font-bold">
+      <h5 className="mx-8 mb-10 flex items-center justify-center text-center font-bold">
         Estimativa de Resultados Passados (Quantidade vs. Número de Jogo)
       </h5>
       <div className="flex items-center justify-center pb-20">

@@ -7,20 +7,22 @@ import Menu from "./Menu";
 const Header = () => {
   const router = useRouter();
 
-  const isGraphPage = router.pathname === "/graph";
+  // const isGraphPage = router.pathname === "/graph";
 
   const routes = [
     { name: "Home", path: "/" },
     { name: "Dashboards", path: "/dashboards" },
     { name: "Graph", path: "/graph" },
+    { name: "About", path: "/about" },
   ];
 
   return (
     <>
       <div
-        className={`flex h-16 items-center ${
-          isGraphPage ? "justify-between" : "justify-center"
-        } bg-background-header pl-10`}
+        // className={`flex h-16 items-center ${
+        //   isGraphPage ? "justify-between" : "justify-center"
+        // } bg-background-header pl-10`}
+        className={`flex h-16 items-center justify-center bg-background-header`}
         style={{ position: "fixed", top: 0, width: "100%", zIndex: 100 }}
       >
         <Menu />
@@ -40,7 +42,7 @@ const Header = () => {
             </div>
           </Link>
         </button>
-        {isGraphPage && (
+        {/* {isGraphPage && (
           <div className="">
             <button>
               <Link href="/dashboards">
@@ -54,7 +56,7 @@ const Header = () => {
               </Link>
             </button>
           </div>
-        )}
+        )} */}
       </div>
       <hr className="mt-16 border-t border-gray-600" />
       <div className="flex h-10 items-center justify-center bg-background-header text-gray-400">

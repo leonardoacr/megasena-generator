@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         'background-page': '#151929',
         'background-header': '#2a2b36',
+        'background-text-box': '#24252f',
         'background-dashboard': '#24252f',
         'label-color': '#696b7a',
       },

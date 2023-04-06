@@ -62,7 +62,7 @@ const Results = () => {
 
   return (
     <>
-      <div className="mt-16 flex flex-col items-center justify-center">
+      <div className="mx-4 mt-8 flex flex-col items-center justify-center">
         <div className="mt-16 rounded-md border-2 border-gray-400 p-4">
           <h2 className="flex items-center justify-center font-bold">
             JOGO GERADO
