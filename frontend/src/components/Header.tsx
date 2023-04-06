@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Menu from "./Menu";
 
 const Header = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const Header = () => {
         } bg-background-header pl-10`}
         style={{ position: "fixed", top: 0, width: "100%", zIndex: 100 }}
       >
-        <div></div>
+        <Menu />
         <button>
           <Link href="/">
             <div className="flex items-center">
