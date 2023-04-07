@@ -28,6 +28,12 @@ The code is divided into 4 main projects:
 
 - Frontend: The frontend was made with React, using NextJS and TailwindCSS, fully responsive with desktops and mobile. It's responsible for presenting the website's interface and showing data through interactive dashboards and outputs.
 
+## :camera: Overview
+
+<div align="center" >
+  <img src="./github/app.gif" alt="demo-web" height="425">
+</div>
+
 <div id="technologies">
   <h2>:rocket: Technologies</h2>
 </div>
