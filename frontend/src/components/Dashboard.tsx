@@ -1,7 +1,5 @@
-import {
-  DashboardContext,
-  IDashboardContext,
-} from "@/contexts/DashboardContext";
+import { DashboardContext } from "@/contexts/DashboardContext";
+import { IDashboardContext } from "@/types/DashboardDataTypes";
 import { useDashboardData, xKeys, yKeys } from "@/hooks/useDashboardData";
 import { useProbabilityData } from "@/hooks/useProbabilityData";
 import Link from "next/link";
