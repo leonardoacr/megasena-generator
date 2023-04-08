@@ -21,7 +21,7 @@ const Dashboard = () => {
   if (isError) {
     return (
       <div className="flex h-screen w-full items-center justify-center">
-        Error fetching data.
+        Error fetching data from the API.
       </div>
     );
   }
