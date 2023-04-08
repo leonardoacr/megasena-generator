@@ -21,7 +21,11 @@ const Dashboard = () => {
   }
 
   if (isError) {
-    return <div>Error fetching data</div>;
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        Error fetching data.
+      </div>
+    );
   }
 
   const handleClick = (
@@ -30,9 +34,6 @@ const Dashboard = () => {
     title: string,
     index: number
   ) => {
-    console.log("Dashboard component");
-    console.log(dashboardData);
-    console.log(dashboardContext.graphData);
     dashboardContext.setPassDashboardData(dashboardData);
     dashboardContext.setGraphData(xKey, yKey, title, index);
   };
