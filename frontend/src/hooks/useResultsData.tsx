@@ -1,21 +1,6 @@
 import { useEffect, useState } from "react";
 import { getResultsData } from "@/services/api-get-request";
-
-export interface IData {
-  [key: string]: string;
-  your_game: string;
-  correct_guesses: string;
-  game_number: string;
-  past_result: string;
-  data: string;
-  type_of_prize: string;
-}
-
-interface IResultsStateData {
-  data: IData | null;
-  isLoading: boolean;
-  isError: boolean;
-}
+import { IData, IResultsStateData } from "@/types/ResultsDataTypes";
 
 export const useResultsData = (): IResultsStateData => {
   const [data, setData] = useState<IData | null>(null);

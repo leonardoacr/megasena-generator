@@ -2,44 +2,29 @@ import { Bar, Line } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
 import React, { useRef } from "react";
-
-interface GraphData {
-  title: string;
-  x: number[];
-  y: number[];
-  chartLabelColor: string;
-  chartBackgroundColor: string;
-  chartBorderColor: string;
-  xLabel: string;
-  yLabel: string;
-  graphType: string;
-}
-
-interface DashboardProps {
-  graphData: GraphData[];
-}
+import { DashboardProps } from "@/types/DashboardDataTypes";
 
 Chart.register(CategoryScale);
 
 const Graphs = ({ graphData }: DashboardProps) => {
   const chartRefs = useRef<(Chart<"line" | "bar", unknown> | null)[]>([]);
 
-  const handleDownload = (index: number) => {
-    const canvas = chartRefs.current[index]?.canvas;
-    if (canvas) {
-      const dataURL = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.download = `${graphData[index].title}.png`;
-      link.href = dataURL;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  };
+  // const handleDownload = (index: number) => {
+  //   const canvas = chartRefs.current[index]?.canvas;
+  //   if (canvas) {
+  //     const dataURL = canvas.toDataURL("image/png");
+  //     const link = document.createElement("a");
+  //     link.download = `${graphData[index].title}.png`;
+  //     link.href = dataURL;
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   }
+  // };
 
   const datasets = graphData.map(
     ({ x, y, chartBorderColor, chartBackgroundColor }) => ({
-      data: y.map((yVal, index) => ({ x: x[index], y: yVal })),
+      data: y.map((yVal: number, index: number) => ({ x: x[index], y: yVal })),
       borderWidth: 0.5,
       borderColor: chartBorderColor,
       backgroundColor: chartBackgroundColor,

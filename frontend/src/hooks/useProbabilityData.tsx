@@ -1,16 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProbabilityData } from "@/services/api-get-request";
-
-export interface IProbabilityData {
-  [key: string]: number[];
-  upper_limit_array: number[];
-  new_probability_array: number[];
-  new_probability_percentage_array: number[];
-}
-
-interface IProbabilityStateData {
-  probabilityData: IProbabilityData;
-}
+import { IProbabilityData, IProbabilityStateData } from "@/types/ProbabilityDataTypes";
 
 export const useProbabilityData = (): IProbabilityStateData => {
   const [probabilityData, setProbabilityData] = useState<IProbabilityData>({

@@ -2,7 +2,7 @@ import {
   DashboardContext,
   IDashboardContext,
 } from "@/contexts/DashboardContext";
-import { useDashboardData } from "@/hooks/useDashboardData";
+import { useDashboardData, xKeys, yKeys } from "@/hooks/useDashboardData";
 import { useProbabilityData } from "@/hooks/useProbabilityData";
 import Link from "next/link";
 import { useContext } from "react";
@@ -37,23 +37,6 @@ const Dashboard = () => {
     dashboardContext.setPassDashboardData(dashboardData);
     dashboardContext.setGraphData(xKey, yKey, title, index);
   };
-
-  const xKeys = [
-    "first_x",
-    "second_x",
-    "third_x",
-    "fourth_x",
-    "fifth_x",
-    "sixth_x",
-  ];
-  const yKeys = [
-    "first_y",
-    "second_y",
-    "third_y",
-    "fourth_y",
-    "fifth_y",
-    "sixth_y",
-  ];
 
   return (
     <div className="w-4/5">

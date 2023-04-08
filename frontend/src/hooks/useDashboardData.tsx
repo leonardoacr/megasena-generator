@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { getDashboardData } from "@/services/api-get-request";
+import {
+  IDashboardData,
+  IDashboardStateData,
+} from "@/types/DashboardDataTypes";
 
-export interface IDashboardData {
-  [key: string]: number[];
-  first_x: number[];
-  first_y: number[];
-  second_x: number[];
-  second_y: number[];
-  third_x: number[];
-  third_y: number[];
-  fourth_x: number[];
-  fourth_y: number[];
-  fifth_x: number[];
-  fifth_y: number[];
-  sixth_x: number[];
-  sixth_y: number[];
-}
-
-interface IDashboardStateData {
-  dashboardData: IDashboardData;
-  isLoading: boolean;
-  isError: boolean;
-}
+export const xKeys = [
+  "first_x",
+  "second_x",
+  "third_x",
+  "fourth_x",
+  "fifth_x",
+  "sixth_x",
+];
+export const yKeys = [
+  "first_y",
+  "second_y",
+  "third_y",
+  "fourth_y",
+  "fifth_y",
+  "sixth_y",
+];
 
 export const useDashboardData = (): IDashboardStateData => {
   const [dashboardData, setDashboardData] = useState<IDashboardData>({
