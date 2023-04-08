@@ -54,7 +54,7 @@ const About = () => {
           Por conta do alto poder de processamento exigido, esses cálculos mais avançados 
           foram mantidos em código Python no Jupyter Notebook, que pode ser encontrado aqui:"
           linkText="Ir para o Jupyter Notebook"
-          linkUrl="https://github.com/leonardoacr/megasena-generator/tree/main/notebook"
+          linkUrl="https://github.com/leonardoacr/megasena-generator/tree/main/notebooks"
         />
         <TextBox
           title="Conclusão"
