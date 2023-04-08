@@ -1,27 +1,5 @@
-import { IDashboardData } from "@/types/DashboardDataTypes";
+import { IDashboardContext } from "@/types/DashboardDataTypes";
 import { createContext, useState } from "react";
-
-export interface IDashboardContext {
-  graphData: {
-    xKey: string;
-    yKey: string;
-    title: string;
-    index: number;
-  };
-  chartLabelColor: string;
-  chartBackgroundColor: string;
-  chartBorderColor: string;
-  xLabel: string;
-  yLabel: string;
-  passDashboardData: IDashboardData;
-  setGraphData: (
-    xKey: string,
-    yKey: string,
-    title: string,
-    index: number
-  ) => void;
-  setPassDashboardData: (dashboardData: IDashboardData) => void;
-}
 
 export const DashboardContext = createContext({} as IDashboardContext);
 
