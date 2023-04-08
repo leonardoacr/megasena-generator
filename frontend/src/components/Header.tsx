@@ -7,8 +7,6 @@ import Menu from "./Menu";
 const Header = () => {
   const router = useRouter();
 
-  // const isGraphPage = router.pathname === "/graph";
-
   const routes = [
     { name: "Home", path: "/" },
     { name: "Dashboards", path: "/dashboards" },
