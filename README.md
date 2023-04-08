@@ -8,13 +8,16 @@
 <br>
 This is a personal project that utilizes statistical analysis and machine learning algorithms to generate lottery numbers for the Mega-Sena, the biggest lottery game in Brazil.
 
+<br>
 The Mega-Sena game generator employs historical frequency data and standard deviation to calculate the probability of specific number combinations appearing in future lottery draws. In addition, advanced machine learning algorithms, such as Long Short-Term Memory (LSTM) and ARIMA models, are utilized to analyze past patterns and provide accurate predictions for future lottery outcomes.
 
+<br>
 This repository contains the code for the Mega-Sena game generator, along with detailed documentation on how to use the program to generate lottery numbers. While statistical analysis and machine learning can provide valuable insights and predictions, it's important to note that there is no guarantee of winning the lottery. Even with predictions based on tendencies observed in moving average graphs and highly accurate results from the RNN, the standard deviation is still too high to accurately predict a specific number. Ultimately, the probabilities of guessing the correct numbers are the same as those when choosing numbers randomly.
 
 Thank you for checking out the Mega-Sena game generator repository and we hope it proves to be a fun and informative tool for generating lottery numbers!
 
-Check the live website: https://mega-sena.onrender.com
+Check the live website: <br>
+https://megasena-generator.vercel.app/
 
 The code is divided into 4 main projects:
 
