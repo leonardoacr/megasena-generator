@@ -19,9 +19,6 @@ const Header = () => {
   return (
     <>
       <div
-        // className={`flex h-16 items-center ${
-        //   isGraphPage ? "justify-between" : "justify-center"
-        // } bg-background-header pl-10`}
         className={`flex h-16 items-center justify-center bg-background-header`}
         style={{ position: "fixed", top: 0, width: "100%", zIndex: 100 }}
       >
@@ -42,21 +39,6 @@ const Header = () => {
             </div>
           </Link>
         </button>
-        {/* {isGraphPage && (
-          <div className="">
-            <button>
-              <Link href="/dashboards">
-                <Image
-                  className="mr-5 invert filter"
-                  src="/return-page.svg"
-                  width={30}
-                  height={50}
-                  alt="lottery-icon"
-                />
-              </Link>
-            </button>
-          </div>
-        )} */}
       </div>
       <hr className="mt-16 border-t border-gray-600" />
       <div className="flex h-10 items-center justify-center bg-background-header text-gray-400">
