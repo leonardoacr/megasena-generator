@@ -1,6 +1,6 @@
 import Graphs from "@/components/Graphs";
 import Header from "@/components/Header";
-import { IDashboardData } from "@/hooks/useDashboardData";
+import { IDashboardData } from "@/types/DashboardDataTypes";
 import { useContext, useEffect, useState } from "react";
 import { DashboardContext } from "../contexts/DashboardContext";
 
