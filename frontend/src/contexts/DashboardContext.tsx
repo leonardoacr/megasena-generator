@@ -1,4 +1,4 @@
-import { IDashboardData } from "@/hooks/useDashboardData";
+import { IDashboardData } from "@/types/DashboardDataTypes";
 import { createContext, useState } from "react";
 
 export interface IDashboardContext {
