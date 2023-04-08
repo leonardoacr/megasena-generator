@@ -1,4 +1,4 @@
-import TextBox from "@/components/About/TextBox";
+import TextBox from "@/components/TextBox";
 import Header from "@/components/Header";
 import React from "react";
 
