@@ -29,12 +29,16 @@ const Graph = () => {
   }, [dashboardContext.passDashboardData]);
 
   // check if there is data available, otherwise show a message
-  if (
-    dashboardData.fifth_x.length === 0 ||
-    !dashboardContext.graphData.xKey ||
-    !dashboardContext.graphData.yKey ||
-    !dashboardContext.graphData.title
-  ) {
+  const isDashboardDataEmtpy = () => {
+    return (
+      dashboardData.first_x.length === 0 ||
+      !dashboardContext.graphData.xKey ||
+      !dashboardContext.graphData.yKey ||
+      !dashboardContext.graphData.title
+    );
+  };
+
+  if (isDashboardDataEmtpy()) {
     return (
       <div className="font-montserrat mt-16 h-full bg-background-page text-white">
         <Header />
