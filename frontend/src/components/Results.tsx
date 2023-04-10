@@ -15,7 +15,7 @@ const Results = () => {
   ) => {
     event.preventDefault(); // prevent default form submission behavior
 
-    const form = event.currentTarget; // get the form element
+    const form = event.currentTarget as HTMLFormElement; // get the form element
     if (form) {
       const formData = new FormData(form); // create a new FormData object with the form data
 
@@ -31,7 +31,7 @@ const Results = () => {
   const handleBandwidthChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = parseInt(event.target.value);
+    const value = parseInt((event.target as HTMLInputElement).value);
     setBandwidth(value);
   };
 
