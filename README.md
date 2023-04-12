@@ -3,7 +3,8 @@
 <div align="center">
  <a href="#technologies">Technologies</a> •
  <a href="#running_backend">Running the Backend</a> •
-  <a href="#running_frontend">Running the Frontend</a>
+  <a href="#running_frontend">Running the Frontend</a> •
+  <a href="#extra">References</a>
 </div>
 <br>
 This is a personal project that utilizes statistical analysis and machine learning algorithms to generate lottery numbers for the Mega-Sena, the biggest lottery game in Brazil.
@@ -137,3 +138,15 @@ $ npm install
 
 $ npm run dev
 ```
+
+<div id="extra">
+  <h2>📚 References</h2>
+</div>
+
+Some interesting papers I read to learn more about LSTM and ARIMA to make this project:
+
+- Hernandez, Arturo A. "Analysis of the results of lotteries using statistical methods and artificial neural networks." In NN'05: Proceedings of the 6th WSEAS international conference on Neural networks, pp. 250-255. June 2005.
+
+- Wang, Z., & Lou, Y. (2019). Hydrological time series forecast model based on wavelet de-noising and ARIMA-LSTM. In Proceedings of 2019 IEEE 3rd Information Technology, Networking, Electronic and Automation Control Conference, ITNEC 2019.
+
+- Yunus, A.P., Shirai, N.C., Morita, K., & Wakabayashi, T. (2022). Comparison of RNN-LSTM and Kalman Filter Based Time Series Human Motion Prediction. Journal of Physics: Conference Series, 2319(1), 012034. doi: 10.1088/1742-6596/2319/1/012034.
