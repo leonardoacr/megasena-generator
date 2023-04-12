@@ -81,7 +81,7 @@ const Graphs = ({ graphData }: DashboardProps) => {
   const ChartComponent = graphData[0].graphType === "Line" ? Line : Bar;
 
   return (
-    <div>
+    <div data-testid="graphRendered">
       {graphData.map((_, index) => (
         <div key={index}>
           <ChartComponent
