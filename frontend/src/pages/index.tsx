@@ -20,9 +20,20 @@ export default function Home() {
       const formData = new FormData(form);
 
       try {
-        await sendDataToBackend(formData);
-        window.location.href = "/";
+        await sendDataToBackend(
+          formData,
+          () => {
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 2000); // Wait for 2 seconds before redirecting
+          },
+          (error) => {
+            console.log("error sending data to backend");
+            console.error(error);
+          }
+        );
       } catch (error) {
+        console.log("error sending data to backend");
         console.error(error);
       }
     }
@@ -101,11 +112,12 @@ export default function Home() {
             type="submit"
             form="new-game-form"
             className={customButtonClass}
-            onClick={() =>
-              (
-                document.getElementById("new-game-form") as HTMLFormElement
-              ).submit()
-            }
+            onClick={() => {
+              const form = document.getElementById(
+                "new-game-form"
+              ) as HTMLFormElement;
+              form.dispatchEvent(new Event("submit", { cancelable: true }));
+            }}
           >
             Novo Jogo
           </button>

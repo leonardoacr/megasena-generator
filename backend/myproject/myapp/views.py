@@ -32,6 +32,7 @@ class HandleBandwidthFormView(APIView):
 
         # Store the bandwidth value in the cache
         print(bandwidth)
+        print(request.POST)
 
         cache.set('bandwidth', bandwidth)
         return JsonResponse({'message': 'Bandwidth value stored successfully'}, status=200)
