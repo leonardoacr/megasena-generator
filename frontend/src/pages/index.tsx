@@ -20,8 +20,8 @@ export default function Home() {
       const formData = new FormData(form);
 
       try {
-        const newUrl = await sendDataToBackend(formData);
-        window.location.href = newUrl;
+        await sendDataToBackend(formData);
+        window.location.href = "/";
       } catch (error) {
         console.error(error);
       }
