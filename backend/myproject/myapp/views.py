@@ -22,9 +22,8 @@ class HandleBandwidthFormView(APIView):
         API endpoint to handle bandwidth form data
         """
         bandwidth = request.POST.get('bandwidth')
-        print(bandwidth)
         if bandwidth is None:
-            return Response({'error': 'Bandwidth field is required'}, status=400)
+            return JsonResponse({'error': 'Bandwidth field is required'}, status=400)
 
         if bandwidth == '':
             bandwidth = 10
@@ -32,11 +31,13 @@ class HandleBandwidthFormView(APIView):
             bandwidth = int(bandwidth)
 
         # Store the bandwidth value in the cache
+        print(bandwidth)
+
         cache.set('bandwidth', bandwidth)
-        return Response(status=200)
+        return JsonResponse({'message': 'Bandwidth value stored successfully'}, status=200)
 
     def get(self, request):
-        return Response(status=405)
+        return JsonResponse({'message': 'Method GET not allowed for this path'}, status=405)
 
 
 class RunResultsScriptsView(APIView):
