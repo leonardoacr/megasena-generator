@@ -68,6 +68,6 @@ describe("Graph", () => {
         <Graph />
       </DashboardContext.Provider>
     );
-    expect(screen.getByTestId("graphRendered")).toBeInTheDocument();
+    expect(screen.getByTestId("graph-rendered")).toBeInTheDocument();
   });
 });
