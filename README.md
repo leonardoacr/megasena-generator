@@ -14,10 +14,6 @@ This is a personal project that utilizes statistical analysis and machine learni
   <img src="./github/app.gif" alt="demo-web" height="425">
 </div>
 
-<div id="technologies">
-  <h2>:rocket: Technologies</h2>
-</div>
-
 <br>
 <br>
 The Mega-Sena game generator employs historical frequency data and standard deviation to calculate the probability of specific number combinations appearing in future lottery draws. In addition, advanced machine learning algorithms, such as Long Short-Term Memory (LSTM) and ARIMA models, are utilized to analyze past patterns and provide accurate predictions for future lottery outcomes.
@@ -66,6 +62,10 @@ The code is divided into 4 main projects:
 - Backend: The backend was made with Python using the Django Framework, which serves an API that provides the frontend with data from the datascience scripts. Swagger was used to describe all the routes.
 
 - Frontend: The frontend was made with React, using NextJS and TailwindCSS, fully responsive with desktops and mobile. It's responsible for presenting the website's interface and showing data through interactive dashboards and outputs.
+
+<div id="technologies">
+  <h2>:rocket: Technologies</h2>
+</div>
 
 ### Jupyter Notebook
 
