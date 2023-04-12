@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-htgbmz+=*4f#+7can0c#m=owdplmp+swoj-1j9y%q#+#l=epr%
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = ['54.205.57.183', 'localhost']
+ALLOWED_HOSTS = ['54.205.57.183', 'localhost',]
 
 
 # Application definition
