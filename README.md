@@ -132,5 +132,3 @@ $ npm install
 
 $ npm run dev
 ```
-
-Interesting papers I read to make this generator:
