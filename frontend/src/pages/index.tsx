@@ -7,7 +7,7 @@ import { useResultsData } from "@/hooks/useResultsData";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default function Home() {
-  const { data, isLoading, isError } = useResultsData();
+  const { data, isLoading, isError, setIsLoading } = useResultsData();
   const [bandwidth, setBandwidth] = useState<number>();
   const [bandwidthLimit, setBandwidthLimit] = useState<boolean>(false);
 
@@ -23,9 +23,10 @@ export default function Home() {
         await sendDataToBackend(
           formData,
           () => {
+            setIsLoading(true);
             setTimeout(() => {
               window.location.href = "/";
-            }, 2000); // Wait for 2 seconds before redirecting
+            }, 1000); // Wait for 2 seconds before redirecting
           },
           (error) => {
             console.log("error sending data to backend");

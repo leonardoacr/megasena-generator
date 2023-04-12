@@ -21,5 +21,5 @@ export const useResultsData = (): IResultsStateData => {
     fetchData();
   }, []);
 
-  return { data, isLoading, isError };
+  return { data, isLoading, setIsLoading, isError };
 };

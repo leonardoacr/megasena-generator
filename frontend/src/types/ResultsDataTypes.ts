@@ -12,4 +12,5 @@ export interface IResultsStateData {
     data: IData | null;
     isLoading: boolean;
     isError: boolean;
+    setIsLoading: any;
 }
