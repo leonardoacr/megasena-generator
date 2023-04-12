@@ -66,6 +66,14 @@ REST_FRAMEWORK = {
     ],
 }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy',
+    }
+}
+
+TEST_FLUSH = False
+
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 

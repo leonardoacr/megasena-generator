@@ -23,6 +23,9 @@ The Mega-Sena game generator employs historical frequency data and standard devi
 This repository contains the code for the Mega-Sena game generator, along with detailed documentation on how to use the program to generate lottery numbers. While statistical analysis and machine learning can provide valuable insights and predictions, it's important to note that there is no guarantee of winning the lottery. Even with predictions based on tendencies observed in moving average graphs and highly accurate results from the RNN, the standard deviation is still too high to accurately predict a specific number. Ultimately, the probabilities of guessing the correct numbers are the same as those when choosing numbers randomly.
 <br>
 <br>
+In summary, the network was trained on 60% of a total of 2579 games, validated and corrected using 20%, and tested with the remaining data. The network predicts the next outcome based on a sequence of 5 previous games. However, due to a high standard deviation, even if a trend is detected in the moving average, the prediction remains random like any other guess. Moreover, an interesting observation is that I compared the frequency curve of independent positions with the Gaussian distribution, which can be approximated when the game data is organized in ascending order by position frequency.
+<br>
+<br>
 Thank you for checking out the Mega-Sena game generator repository and I hope it proves to be a fun and informative tool for generating lottery numbers, learning a bit of statistics, data science and machine learning!
 <br>
 <br>
@@ -55,7 +58,9 @@ The code is divided into 4 main projects:
 
 - Jupyter Notebook: This was the initial approach to the problem, offering a detailed description of each feature on the app, and providing deep statistical analysis. In addition, the Jupyter Notebook also used advanced machine learning algorithms, such as LSTM and ARIMA, to predict future lottery outcomes. However, these models were not implemented on the website as they required too much processing power to run.
 
-  - LSTM models are a type of recurrent neural network that can capture long-term dependencies in sequential data, making them well-suited for time-series prediction tasks like lottery number generation. ARIMA models, on the other hand, are a statistical method for analyzing and forecasting time-series data.
+  - LSTM models are a type of recurrent neural network that can capture long-term dependencies in sequential data, making them well-suited for time-series prediction tasks like lottery number generation.
+
+  - ARIMA models, on the other hand, are a statistical method for analyzing and forecasting time-series data.
 
 - Datascience: The statistical data based on historical frequency, created in the Jupyter Notebook, was implemented on Python scripts. These scripts provide data to the backend.
 
@@ -77,7 +82,7 @@ The code is divided into 4 main projects:
 
 ### Frontend
 
-✔️ TypeScript | ✔️ ReactJS | ✔️ NextJS | ✔️ TailwindCSS | ✔️ ChartJS
+✔️ TypeScript | ✔️ ReactJS | ✔️ NextJS | ✔️ TailwindCSS | ✔️ ChartJS | ✔️ Jest
 
 <div id="running_backend">
   <h2>⚙ Running [Backend]</h2>
