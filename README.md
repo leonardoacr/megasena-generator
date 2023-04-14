@@ -27,12 +27,14 @@ This repository contains the code for the Mega-Sena game generator, along with d
 In summary, the network was trained on 60% of a total of 2579 games, validated and corrected using 20%, and tested with the remaining data. The network predicts the next outcome based on a sequence of 5 previous games. However, due to a high standard deviation, even if a trend is detected in the moving average, the prediction remains random like any other guess. Moreover, an interesting observation is that I compared the frequency curve of independent positions with the Gaussian distribution, which can be approximated when the game data is organized in ascending order by position frequency.
 <br>
 <br>
-Thank you for checking out the Mega-Sena game generator repository and I hope it proves to be a fun and informative tool for generating lottery numbers, learning a bit of statistics, data science and machine learning!
+Obviously, it is not possible to predict lottery results and no relevant pattern was found. In the verification stage using Chi-Square, it was noticed that, as expected, the raw data is non-stationary in all positions. To overcome this situation, I used a controlled analysis window with a moving average, which allowed me to use the data as input in LSTM and ARIMA models.
+<br>
+<br>
+As a conclusion, this project aimed to apply data science topics with Python, experiment a bit with Django, deploy on AWS EC2 with Nginx directly from the Linux terminal, and also on PythonAnywhere. I also put into practice some concepts that I learned in previous courses of React with TypeScript. Below is the link to the deployment, along with the GitHub repository containing documentation and all the steps I mentioned.
 <br>
 <br>
 Check the live website: <br>
 https://megasena-generator.vercel.app/
-
 <br>
 <br>
 Check the live API backend on PythonAnywhere:<br>
