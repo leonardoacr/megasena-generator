@@ -1,4 +1,4 @@
-# <a href="https://codechallenge-1.onrender.com/">MegaSena Generator</a>
+# <a href="https://weg-dashboards.vercel.app/">MegaSena Generator</a>
 
 <div align="center">
  <a href="#technologies">Technologies</a> •
@@ -12,7 +12,7 @@ This is a personal project that utilizes statistical analysis and machine learni
 ## :camera: Overview
 
 <div align="center" >
-  <img src="./github/app.gif" alt="demo-web" height="425">
+  <img src="./github/app.gif" alt="demo-web">
 </div>
 
 <br>
